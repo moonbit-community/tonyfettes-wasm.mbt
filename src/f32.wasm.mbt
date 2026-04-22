@@ -6,7 +6,7 @@ extern "wasm" fn _f32_store(offset : Int, value : Float) =
   #| f32.store)
 
 ///|
-pub fn f32_store(memory~ : Memory = 0, offset : Int, value : Float) -> Unit {
+pub fn f32_store(memory? : Memory = 0, offset : Int, value : Float) -> Unit {
   ignore(memory)
   _f32_store(offset, value)
 }
@@ -18,7 +18,7 @@ extern "wasm" fn _f32_load(offset : Int) -> Float =
   #| f32.load)
 
 ///|
-pub fn f32_load(memory~ : Memory = 0, offset : Int) -> Float {
+pub fn f32_load(memory? : Memory = 0, offset : Int) -> Float {
   ignore(memory)
   _f32_load(offset)
 }

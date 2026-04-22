@@ -6,7 +6,7 @@ extern "wasm" fn f64_store_ffi(offset : Int, value : Double) =
   #| f64.store)
 
 ///|
-pub fn f64_store(memory~ : Memory = 0, offset : Int, value : Double) -> Unit {
+pub fn f64_store(memory? : Memory = 0, offset : Int, value : Double) -> Unit {
   ignore(memory)
   f64_store_ffi(offset, value)
 }
@@ -18,7 +18,7 @@ extern "wasm" fn f64_load_ffi(offset : Int) -> Double =
   #| f64.load)
 
 ///|
-pub fn f64_load(memory~ : Memory = 0, offset : Int) -> Double {
+pub fn f64_load(memory? : Memory = 0, offset : Int) -> Double {
   ignore(memory)
   f64_load_ffi(offset)
 }
