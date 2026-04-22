@@ -1,5 +1,5 @@
 ///|
-typealias Int as Memory
+type Memory = Int
 
 ///|
 extern "wasm" fn _memory_copy(dst : Int, src : Int, len : Int) =
