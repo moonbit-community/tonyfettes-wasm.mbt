@@ -1,0 +1,56 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "tonyfettes/wasm"
+
+// Values
+pub fn f32_load(memory? : Int, Int) -> Float
+
+pub fn f32_store(memory? : Int, Int, Float) -> Unit
+
+pub fn f64_load(memory? : Int, Int) -> Double
+
+pub fn f64_store(memory? : Int, Int, Double) -> Unit
+
+pub fn i32_extend16_s(Int) -> Int
+
+pub fn i32_extend8_s(Int) -> Int
+
+pub fn i32_load(memory? : Int, Int) -> Int
+
+pub fn i32_load16_s(memory? : Int, Int) -> Int
+
+pub fn i32_load16_u(memory? : Int, Int) -> Int
+
+pub fn i32_load8_s(memory? : Int, Int) -> Int
+
+pub fn i32_load8_u(memory? : Int, Int) -> Int
+
+pub fn i32_store(memory? : Int, Int, Int) -> Unit
+
+pub fn i32_store16(memory? : Int, Int, Int) -> Unit
+
+pub fn i32_store8(memory? : Int, Int, Int) -> Unit
+
+pub fn i64_load(memory? : Int, Int) -> Int64
+
+pub fn i64_store(memory? : Int, Int, Int64) -> Unit
+
+pub fn memory_atomic_notify(memory? : Int, Int, Int) -> Unit
+
+pub fn memory_atomic_wait32(memory? : Int, Int, Int, Int64) -> Int
+
+pub fn memory_atomic_wait64(memory? : Int, Int, Int64, Int64) -> Int
+
+pub fn memory_copy(memory? : Int, Int, Int, Int) -> Unit
+
+pub fn memory_grow(memory? : Int, Int) -> Int
+
+pub fn memory_size(memory? : Int) -> Int
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+
