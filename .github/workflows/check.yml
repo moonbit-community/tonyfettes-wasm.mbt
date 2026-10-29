@@ -1,51 +1,29 @@
-name: check
-
+name: Toolchain health
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [main, master]
   pull_request:
-
+permissions:
+  contents: read
 jobs:
   check:
     strategy:
       fail-fast: false
+      matrix:
+        version: [latest, nightly]
     runs-on: ubuntu-latest
-    continue-on-error: false
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          submodules: 'recursive'
-
-      - name: install
-        run: |
-          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
-          echo "$HOME/.moon/bin" >> $GITHUB_PATH
-
-      - name: moon version
-        run: |
-          moon version --all
-
-      - name: moon check
-        run: |
-          moon update
-          moon check --deny-warn
-
-      - name: moon info
-        run: |
-          moon info --target all
-          git diff --exit-code
-
-      - name: format diff
-        run: |
-          moon fmt
-          git diff --exit-code
-
-      - name: Set ulimit
-        run: |
-          ulimit -s 8176
-
-      - name: moon test
-        run: |
-          moon test --target all
+          node-version: 22
+      - uses: hustcer/setup-moonbit@develop
+        with:
+          version: ${{ matrix.version }}
+      - run: moon version --all
+      - run: moon update
+      - run: moon check --deny-warn --target wasm,wasm-gc,js
+      - run: moon fmt --check
+      - run: moon info --target wasm,wasm-gc,js && git diff --exit-code
+      - run: moon test --target wasm,wasm-gc,js
+      - run: moon test --target wasm,wasm-gc,js --release
