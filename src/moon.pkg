@@ -1,0 +1,24 @@
+supported_targets = "-all+wasm+wasm-gc+js"
+
+warnings = "-44"
+
+options(
+  targets: {
+    "f32.js.mbt": [ "js" ],
+    "f32.wasm.mbt": [ "wasm", "wasm-gc" ],
+    "f32_test.mbt": [ "js", "wasm", "wasm-gc" ],
+    "f64.js.mbt": [ "js" ],
+    "f64.wasm.mbt": [ "wasm", "wasm-gc" ],
+    "f64_test.mbt": [ "js", "wasm", "wasm-gc" ],
+    "i32.js.mbt": [ "js" ],
+    "i32.wasm.mbt": [ "wasm", "wasm-gc" ],
+    "i32_test.mbt": [ "js", "wasm", "wasm-gc" ],
+    "i64.js.mbt": [ "js" ],
+    "i64.wasm.mbt": [ "wasm", "wasm-gc" ],
+    "i64_test.mbt": [ "js", "wasm", "wasm-gc" ],
+    "ignore.mbt": [ "wasm", "wasm-gc" ],
+    "memory.js.mbt": [ "js" ],
+    "memory.wasm.mbt": [ "wasm", "wasm-gc" ],
+  },
+  link: { "js": { "exports": [ "get_default_memory" ], "format": "esm" } },
+)
